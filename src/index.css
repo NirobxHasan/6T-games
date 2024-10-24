@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* .headerImg { */
+/* background-image: url('./assets/images/bannerImg01.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 200px;
+    overflow: hidden; */
+/* } */
+@layer base {
+    input[type='number']::-webkit-inner-spin-button,
+    input[type='number']::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    li {
+        @apply list-disc list-inside;
+    }
+    .text-big,
+    strong {
+        @apply text-2xl;
+    }
+    li,
+    span {
+        @apply break-all;
+    }
+}
+.neon-text {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #0ff,
+        0 0 70px #0ff, 0 0 80px #0ff, 0 0 100px #0ff, 0 0 150px #0ff;
+}
+/* spotlight  */
+
+.swiper-pagination-bullet-active {
+    height: 10px !important;
+    width: 10px !important;
+    background: #dc3545 !important;
+}
