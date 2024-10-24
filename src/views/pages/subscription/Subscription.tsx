@@ -15,13 +15,23 @@ const Subscription = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
+        const formDataScheme = {
+            msisdn: user?.msisdn || '',
+            appname: '6T-games'
+        };
+        getsubschemes(formDataScheme).then((res) => {
+            setSubData(res?.data.data);
+        });
+    }, []);
+    useEffect(() => {
         if (user?.msisdn) {
             loginAgain();
-
+            // console.log('first');
             const formData = {
                 msisdn: user?.msisdn,
                 haspin: 'yes'
             };
+
             loginApi(formData).then((res) => {
                 if (res?.data?.data.result === 'success') {
                     setPack(res?.data?.data.packcode);
@@ -33,14 +43,13 @@ const Subscription = () => {
                 appname: '6T-games'
             };
             getsubschemes(formDataScheme).then((res) => {
-                // console.log(res?.data);
+                console.log(res?.data);
                 setSubData(res?.data.data);
             });
         } else {
             setPack('nopack');
         }
     }, [user]);
-
     const handleSubscriptionBtn = (packcode: string, autorenew: string) => {
         if (!user?.msisdn) {
             navigate('/login');
